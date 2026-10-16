@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102943">
+  <title>SignalCheck | Email Threat Review</title>
+  <link rel="stylesheet" href="src/styles.css">
+  <script defer src="src/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="SignalCheck home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>SignalCheck<span class="brand-sub">EMAIL THREAT REVIEW</span></span>
+    </a>
+    <span class="offline-tag"><span class="dot"></span> Runs in this browser</span>
+  </header>
+
+  <main id="top">
+    <section class="intro">
+      <p class="eyebrow">TEAM APEX ZERO · SIH26106</p>
+      <h1>Pause before you click.</h1>
+      <p class="intro-copy">Review an email for common phishing clues. SignalCheck combines a small local text classifier with clear, rule-based checks, then explains what it noticed.</p>
+    </section>
+
+    <section class="workspace" aria-label="Email analysis workspace">
+      <form id="analysis-form" class="email-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">MESSAGE REVIEW</p>
+            <h2>Paste an email</h2>
+          </div>
+          <label class="sample-picker" for="sample-select">
+            <span>Try a sample</span>
+            <select id="sample-select">
+              <option value="">Choose example</option>
+              <option value="account-alert">Account alert (suspicious)</option>
+              <option value="payment-request">Payment request (suspicious)</option>
+              <option value="team-meeting">Team meeting (ordinary)</option>
+              <option value="project-update">Project update (ordinary)</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field-label" for="sender">From</label>
+        <input id="sender" name="sender" type="text" autocomplete="off" placeholder="Example: Accounts Desk &lt;notice@account-check.example&gt;">
+
+        <label class="field-label" for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" autocomplete="off" placeholder="Email subject">
+
+        <label class="field-label" for="body">Message</label>
+        <textarea id="body" name="body" rows="9" placeholder="Paste the subject or message text you want to review."></textarea>
+
+        <div class="form-actions">
+          <p class="privacy-note"><span aria-hidden="true">◆</span> Your message stays in this browser. Nothing is uploaded or saved.</p>
+          <button type="submit" class="analyze-button">Analyze message <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+
+      <section id="result-panel" class="result-panel" aria-live="polite" aria-label="Analysis result">
+        <div class="result-empty">
+          <div class="scan-icon" aria-hidden="true"><span></span></div>
+          <p class="eyebrow">REVIEW SUMMARY</p>
+          <h2>Ready when you are</h2>
+          <p>Choose a sample or paste an email, then select <strong>Analyze message</strong>. You’ll see the clues and a suggested review priority here.</p>
+          <div class="model-note"><strong>Prototype note</strong><br>The text model learns from a small set of fictional examples. It is for demonstration and is not a production email filter.</div>
+        </div>
+      </section>
+    </section>
+
+    <section class="how-it-works">
+      <div>
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>Clues first. People decide.</h2>
+      </div>
+      <p>The demo checks sender and link patterns, looks for pressure or credential requests, and compares the wording with fictional training examples. A priority is only a prompt for human review; it is not proof that an email is safe or malicious.</p>
+    </section>
+
+    <footer>
+      <span>SignalCheck · Team Apex Zero</span>
+      <span>Local demo · No external services · No message storage</span>
+    </footer>
+  </main>
+</body>
+</html>
